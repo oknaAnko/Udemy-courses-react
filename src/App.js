@@ -1,10 +1,15 @@
 import React from 'react';
 
+import Header from './components/Header/Header'
+import StoreProvider from './store/StoreProvider'
+
 import './App.scss';
 
 const App = () => {
     return (
-        <header>Hello World</header>
+        <StoreProvider>
+            <Header />
+        </StoreProvider>
     );
 }
 
