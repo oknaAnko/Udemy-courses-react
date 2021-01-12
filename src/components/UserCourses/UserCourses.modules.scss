@@ -1,7 +1,7 @@
 .user-courses {
   flex-grow: 1;
   display: flex;
-  font-display: column;
+  flex-direction: column;
 
   &__title {
     text-align: center;
