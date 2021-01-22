@@ -59,21 +59,19 @@ const LoginForm = ({ handleOnClose, isModalOpen }) => {
             {validateMessageComponent}
             <form className={style()} method="post" onSubmit={handleOnSubmit}>
                 <div className={style('row')}>
-                    <label htmlFor="">
+                    <label className={style('label')}>
                         Login:
-                        <input type="text" value={login} onChange={handleOnChageLogin} />
+                    <input type="text" value={login} onChange={handleOnChageLogin} className={style('input')} />
                     </label>
                 </div>
                 <div className={style('row')}>
-                    <label htmlFor="">
+                    <label className={style('label')}>
                         Hasło:
-                        <input type="password" value={password} onChange={handleOnChagePassword} />
+                        <input type="password" value={password} onChange={handleOnChagePassword} className={style('input')} />
                     </label>
                 </div>
-                <div className={style('row')}>
-                    <button type="submit">Zaloguj</button>
-                    <button type="button" onClick={handleOnCloseModal}>Anuluj</button>
-                </div>
+                <button type="submit" className={style('btn')}>Zaloguj</button>
+                <button type="button" className={style('btn', { cancel: true })} onClick={handleOnCloseModal}>Anuluj</button>
             </form>
         </Modal>
     );
