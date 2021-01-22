@@ -1,3 +1,6 @@
+@import '../../../sass/variables.scss';
+@import '../../../sass/mixins.scss';
+
 .course-popup {
   display: flex;
   flex-direction: column;
@@ -11,8 +14,47 @@
     display: flex;
   }
 
+  &__label {
+    width: 100%;
+    font-size: 1.5rem;
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__authors {
+    font-size: 1.5rem;
+  }
+
   &__input {
     display: flex;
     flex-grow: 1;
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px 0 5px 5px;
+    @include input;
+  }
+
+  &__btn {
+    width: 50%;
+    margin: 10px auto;
+    padding: 10px 10px;
+    border-radius: 5px;
+    @include btn;
+
+    &_cancel {
+    width: 50%;
+    margin: 0 auto;
+    padding: 5px 10px;
+    @include btn-cancel;
+    }
+
+    &_small {
+    width: 30%;
+    margin: 5px 10px;
+    padding: 5px 5px;
+    @include btn-small;
+    }
   }
 }

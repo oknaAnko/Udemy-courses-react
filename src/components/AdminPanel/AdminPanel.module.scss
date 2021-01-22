@@ -1,0 +1,23 @@
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
+
+.admin-panel {
+  margin-top: 50px;
+
+  &__summary {
+    padding: 10px 15px;
+    font-size: 1.6rem;
+    font-weight: 600;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__btn {
+    margin: 5px 10px;
+    padding: 10px 10px;
+    border-radius: 5px;
+    @include btn;
+  }
+}

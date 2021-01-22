@@ -73,8 +73,8 @@ const CoursePopup = ({
 
     const authorsElements = formAuthors.map(author => (
         <li key={author}>
-            <p>{author}</p>
-            <button data-author={author} onClick={deleteAuthor}>Usuń</button>
+            <p className={style('authors')}>{author}</p>
+            <button className={style('btn', {small:true})} data-author={author} onClick={deleteAuthor}>Usuń</button>
         </li>
     ));
 
@@ -85,35 +85,35 @@ const CoursePopup = ({
             <div className={style()}>
                 <form className={style('form')} method="submit" onSubmit={handleOnSubmit}>
                     <div className={style('form-row')}>
-                        <label>
+                        <label className={style('label')}>
                             Autor:
                             <input className={style('input')} type="text" value={formAuthor} onChange={handleOnChangeAuthor} />
-                            <button onClick={addAuthor}>Dodaj autora</button>
+                            <button className={style('btn', {small: true})} onClick={addAuthor}>Dodaj autora</button>
                         </label>
                     </div>
                     <div className={style('form-row')}>
-                        <label>
+                        <label className={style('label')}>
                             Obrazek url:
                             <input className={style('input')} type="text" value={formImg} onChange={handleOnChangeImg} />
                         </label>
                     </div>
                     <div className={style('form-row')}>
-                        <label>
+                        <label className={style('label')}>
                             Cena:
                             <input className={style('input')} type="number" value={formPrice} onChange={handleOnChangePrice} />
                         </label>
                     </div>
                     <div className={style('form-row')}>
-                        <label>
+                        <label className={style('label')}>
                             Tytuł:
                             <input className={style('input')} type="text" value={formTitle} onChange={handleOnChangeTitle} />
                         </label>
                     </div>
-                    <button type="submit">{correctLabel}</button>
-                    <button onClick={hidePopup} type="button">Anuluj</button>
+                    <button className={style('btn')} type="submit">{correctLabel}</button>
+                    <button className={style('btn', {cancel: true})} onClick={hidePopup} type="button">Anuluj</button>
                 </form>
-                <p>Lista autorów</p>
-                <ul>
+                <p className={style('authors')}>Lista autorów:</p>
+                <ul className={style('list')}>
                     {authorsElements}
                 </ul>
             </div>

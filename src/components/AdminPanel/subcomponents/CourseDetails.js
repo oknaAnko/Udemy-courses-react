@@ -1,10 +1,13 @@
 import React, { useState, useContext } from 'react';
 import request from '../../../helpers/request';
+import bemCssModule from 'bem-css-modules';
 
 import CoursePopup from './CoursePopup';
 
 import { StoreContext } from '../../../store/StoreProvider';
+import { default as AdminPanelStyles } from '../AdminPanel.module.scss';
 
+const style = bemCssModule(AdminPanelStyles);
 
 const CourseDetails = (props) => {
     const [isOpenPopup, setIsOpenPopup] = useState(false);
@@ -33,9 +36,9 @@ const CourseDetails = (props) => {
 
     return (
         <details>
-            <summary>{title}</summary>
-            <button onClick={showPopup}>Edytuj</button>
-            <button onClick={handleDeleteCourse}>Usuń</button>
+            <summary className={style('summary')}>{title}</summary>
+            <button className={style('btn')} onClick={showPopup}>Edytuj</button>
+            <button className={style('btn')} onClick={handleDeleteCourse}>Usuń</button>
             <CoursePopup isOpenPopup={isOpenPopup} hidePopup={hidePopup} {...props} />
         </details>
     );
