@@ -14,7 +14,7 @@ const AdminMenu = () => {
             <nav>
                 <ul>
                     <li className={style('link')}>
-                        <Link to="/manage-courses">Zarządzanie kursami</Link>
+                        <Link to="/manage-courses" replace className={style('a-tag')}>Zarządzanie kursami</Link>
                     </li>
                 </ul>
             </nav>

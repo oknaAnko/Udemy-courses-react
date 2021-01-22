@@ -14,9 +14,9 @@ const UserMenu = ({ isUserLogged }) => {
             <nav>
                 <ul>
                     <li className={style('link')}>
-                        <Link to="/">Kursy w sprzedaży</Link>
+                        <Link to="/" replace className={style('a-tag')}>Kursy w sprzedaży</Link>
                     </li>
-                    {isUserLogged && <li className={style('link')}><Link to="/my-courses">Moje zakupione kursy</Link></li>}
+                    {isUserLogged && <li className={style('link')}><Link to="/my-courses" replace className={style('a-tag')}>Moje zakupione kursy</Link></li>}
                 </ul>
             </nav>
         </div>

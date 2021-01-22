@@ -21,7 +21,7 @@ const Header = () => {
         if (Boolean(user)) {
             setUser(null)
         } else {
-            console.log(setIsModalOpen);
+            // console.log(setIsModalOpen);
             setIsModalOpen(true)
         }
     }
@@ -30,10 +30,12 @@ const Header = () => {
 
     return (
         <header className={style()}>
-            <div className={style('logo-wrapper')} />
-            <h1 className={style('title')}>Super kursy dla programistów</h1>
-            <button onClick={handleOnClick}>{setProperlyLabel}</button>
-            <LoginForm handleOnClose={handleOnClose} isModalOpen={isModalOpen} />
+            <div className={style('wrapper')}>
+                <div className={style('logo-wrapper')}>aA</div>
+                <h1 className={style('title')}>Super kursy dla programistów</h1>
+                <button className={style('btn-login')} onClick={handleOnClick}>{setProperlyLabel}</button>
+                <LoginForm handleOnClose={handleOnClose} isModalOpen={isModalOpen} />
+            </div>
         </header>
     );
 }

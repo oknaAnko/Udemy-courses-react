@@ -1,24 +1,58 @@
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
+
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
-  display: flex;
   height: 60px;
-  background-color: #ddd;
-  border-bottom: 2px solid #000;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  background-color: $color-dark;
+  color: white;
+  box-shadow: 0 3px 8px rgba(235, 209, 209, 0.1);
+
+  &__wrapper {
+    display: flex;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
 
   &__logo-wrapper {
     width: 60px;
     height: 60px;
-    background-color: #568425;
+    background-color: $color-dark;
+    text-align: center;
+    line-height: 60px;
+    font-size: 2.5rem;
+    color: $color-green;
+    font-weight: bold;
   }
 
   &__title {
     margin-left: 20px;
     align-self: center;
     flex-grow: 1;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+
+  &__btn-login {
+    padding: 0 20px;
+    background-color: $color-dark;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    font-family: "Open Sans", sans-serif;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $color-green-alpha;
+    }
+
+    &:focus {
+      outline: none;
+    }
   }
 }
