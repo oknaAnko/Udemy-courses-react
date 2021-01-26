@@ -2,7 +2,6 @@
 @import '../../sass/mixins.scss';
 
 .aside-menu {
-  width: 250px;
   position: relative;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
   font-size: 1.5rem;
@@ -10,6 +9,9 @@
   &__nav-wrapper {
     position: sticky;
     top: 80px;
+    @media (max-width: 812px) {
+      top: 60px;
+    }
   }
 
   &__title {
@@ -17,6 +19,9 @@
     padding: 10px 25px;
     background-color: rgba(45, 54, 58, 0.9);
     color: white;
+    @media (max-width: 812px) {
+      padding: 5px 15px;
+    }
   }
 
   &__link {
@@ -24,6 +29,10 @@
     padding: 10px 5px;
     text-align: center;
     list-style: none;
+    @media (max-width: 812px) {
+      margin-top: 5px;
+      padding: 5px 5px;
+    }
 
     &:hover {
       cursor: pointer;

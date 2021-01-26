@@ -19,5 +19,13 @@
     padding: 10px 10px;
     border-radius: 5px;
     @include btn;
+    @media (max-width: 812px) {
+      padding: 5px 5px;
+    }
+  }
+
+  @media (max-width: 812px) {
+    margin-top: 0;
+    max-width: 1030px;
   }
 }

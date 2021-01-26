@@ -27,6 +27,11 @@
     font-size: 2.5rem;
     color: $color-green;
     font-weight: bold;
+    @media (max-width: 812px) {
+      height: 40px;
+      width: 40px;
+      line-height: 40px;
+    }
   }
 
   &__title {
@@ -36,6 +41,9 @@
     font-size: 2.5rem;
     letter-spacing: 1px;
     font-weight: 600;
+    @media (max-width: 415px) {
+      font-size: 1.5rem;
+    }
   }
 
   &__btn-login {
@@ -54,5 +62,14 @@
     &:focus {
       outline: none;
     }
+
+    @media (max-width: 415px) {
+      padding: 0 10px;
+      font-size: 1.3rem;
+    }
+  }
+
+  @media (max-width: 812px) {
+    height: 40px;
   }
 }

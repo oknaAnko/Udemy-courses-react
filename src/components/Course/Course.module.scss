@@ -1,5 +1,5 @@
-@import "../../sass/variables.scss";
-@import "../../sass/mixins.scss";
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
 
 .course-card {
   display: flex;
@@ -28,6 +28,9 @@
   &__authors {
     margin: 10px 0 10px 15px;
     font-size: 1.5rem;
+    @media (max-width: 812px) {
+      margin: 5px 5px 5px 5px;
+    }
   }
 
   &__btn {
@@ -37,5 +40,9 @@
     border-bottom-right-radius: 5px;
     text-align: center;
     @include btn;
+  }
+
+  @media (max-width: 812px) {
+    min-height: 245px;
   }
 }
