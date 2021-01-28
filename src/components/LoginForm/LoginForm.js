@@ -1,48 +1,52 @@
 import React, { useContext, useEffect, useState } from 'react';
+import request from '../../helpers/request';
 import bemCssModules from 'bem-css-modules';
 
-import Modal from '../Modal/Modal'
+import Modal from '../Modal/Modal';
 
 import { StoreContext } from '../../store/StoreProvider';
+import { ErrorContext } from '../../store/ErrorProvider';
 
 import { default as LoginFormStyles } from './LoginForm.module.scss';
-import request from '../../helpers/request';
 
 const style = bemCssModules(LoginFormStyles);
 
 const LoginForm = ({ handleOnClose, isModalOpen }) => {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
-    const [validateMessage, setValidateMessage] = useState('');
-
     const { setUser } = useContext(StoreContext);
+    const { errorMessage, setErrorMessage } = useContext(ErrorContext);
 
     const handleOnChageLogin = ({ target: { value } }) => setLogin(value);
     const handleOnChagePassword = ({ target: { value } }) => setPassword(value);
 
-    const handleOnCloseModal = e => {
-        e.preventDefault();
+    const handleOnCloseModal = event => {
+        event.preventDefault();
         handleOnClose();
     }
 
     const resetStateOfInputs = () => {
         setLogin('');
         setPassword('');
-        setValidateMessage('');
+        setErrorMessage('');
     }
 
     const handleOnSubmit = async event => {
-        event.preventDefault();
-        const { data, status } = await request.post('/users', { login, password });
+        try {
+            event.preventDefault();
+            const { data, status } = await request.post('/users', { login, password });
 
-        if (status === 200) {
-            setUser(data.user);
-            resetStateOfInputs();
-            handleOnClose();
-        } else {
-            setValidateMessage(data.message)
+            if (status === 200) {
+                setUser(data.user);
+                resetStateOfInputs();
+                handleOnClose();
+            }
+
+        } catch (error) {
+            const { response } = error;
+            setErrorMessage(response.data.message)
         }
-    }
+    };
 
     useEffect(() => {
         if (isModalOpen) {
@@ -50,9 +54,9 @@ const LoginForm = ({ handleOnClose, isModalOpen }) => {
         }
     }, [isModalOpen])
 
-    const validateMessageComponent = validateMessage.length
-        ? <p className={style('validate-message')}>{validateMessage}</p>
-        : null
+    const validateMessageComponent = errorMessage.length
+        ? <p className={style('validate-message')}>{errorMessage}</p>
+        : null;
 
     return (
         <Modal handleOnClose={handleOnClose} isOpen={isModalOpen} shoudBeCloseOnOutsideClick={true}>

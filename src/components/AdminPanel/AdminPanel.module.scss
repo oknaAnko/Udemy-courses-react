@@ -1,5 +1,5 @@
-@import '../../sass/variables.scss';
-@import '../../sass/mixins.scss';
+@import "../../sass/variables.scss";
+@import "../../sass/mixins.scss";
 
 .admin-panel {
   margin-top: 50px;
@@ -12,6 +12,11 @@
     &:focus {
       outline: none;
     }
+  }
+
+  &__validate-message {
+    margin-bottom: 20px;
+    @include validate-message;
   }
 
   &__btn {

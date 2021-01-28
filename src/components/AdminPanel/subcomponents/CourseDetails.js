@@ -4,7 +4,9 @@ import bemCssModule from 'bem-css-modules';
 
 import CoursePopup from './CoursePopup';
 
+import { ErrorContext } from '../../../store/ErrorProvider';
 import { StoreContext } from '../../../store/StoreProvider';
+
 import { default as AdminPanelStyles } from '../AdminPanel.module.scss';
 
 const style = bemCssModule(AdminPanelStyles);
@@ -12,14 +14,17 @@ const style = bemCssModule(AdminPanelStyles);
 const CourseDetails = (props) => {
     const [isOpenPopup, setIsOpenPopup] = useState(false);
     const { setCourses } = useContext(StoreContext);
+    const { setErrorMessage } = useContext(ErrorContext);
     const { id, title } = props;
 
     const showPopup = () => setIsOpenPopup(true);
+
     const hidePopup = event => {
         if (event) {
             event.preventDefault();
         }
         setIsOpenPopup(false);
+        setErrorMessage('');
     };
 
     const handleDeleteCourse = async () => {
@@ -29,8 +34,10 @@ const CourseDetails = (props) => {
             if (status === 200) {
                 setCourses(prev => prev.filter(course => course.id !== id));
             }
+
         } catch (error) {
-            console.warn(error);
+            const { response } = error;
+            alert(response.data.message);
         }
     };
 

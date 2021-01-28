@@ -1,5 +1,5 @@
-@import '../../../sass/variables.scss';
-@import '../../../sass/mixins.scss';
+@import "../../../sass/variables.scss";
+@import "../../../sass/mixins.scss";
 
 .course-popup {
   display: flex;
@@ -34,6 +34,11 @@
     margin-top: 5px;
     padding: 5px 0 5px 5px;
     @include input;
+  }
+
+  &__validate-message {
+    margin-bottom: 20px;
+    @include validate-message;
   }
 
   &__btn {

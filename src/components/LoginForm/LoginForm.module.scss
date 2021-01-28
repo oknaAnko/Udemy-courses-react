@@ -1,5 +1,5 @@
-@import '../../sass/variables.scss';
-@import '../../sass/mixins.scss';
+@import "../../sass/variables.scss";
+@import "../../sass/mixins.scss";
 
 .login-form {
   position: absolute;
@@ -11,10 +11,8 @@
   width: 75%;
 
   &__validate-message {
-    margin-top: 20px;
-    color: #f00;
-    font-size: 1.5rem;
-    text-align: center;
+    margin: 20px 0;
+    @include validate-message;
   }
 
   &__row {
